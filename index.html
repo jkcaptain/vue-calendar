@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>calendar</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.8/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="calendar-wrapper">
+            <div class="calendar-toolbar">
+                <div class="prev" @click="prevMonth">上个月</div>
+                <div class="current">{{ currentDateStr }}</div>
+                <div class="next" @click="nextMonth">下个月</div>
+            </div>
+            <div class="calendar-week">
+                <div class="week-item" v-for="item of weekList" :key="item">{{ item }}</div>
+            </div>
+            <div class="calendar-inner">
+                <div class="calendar-item" v-for="(item, index) of calendarList" :key="index" 
+                    :class="[item.disable ? 'disabled' : '']">
+                    {{ item.date }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
